@@ -1,0 +1,66 @@
+﻿@model TranHoangDinh_2120110042.Models.HomeModel
+
+
+@{
+    ViewBag.Title = "Cate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+        <nav class="row">
+            @foreach (var item in Model.ListCategory)
+            {
+                <div class="col-md-3">
+
+                    <div class="card card-category">
+                        <div class="img-wrap" style="background: #d6eaf8; padding: 10px; ">
+                            <img src="~/Content/images/@item.CateImage" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="@Url.Action("CateProduct", "Category", new {@id = item.CateId})">@item.CateName</a></h4>
+                            <ul class="list-menu">
+                                @foreach (var i in Model.ListProduct.Where(n => n.CategoryId == item.CateId))
+                                {
+                                    <li><a href="@Url.Action("Detail", "Product", new {@id = i.Id})">@i.Name</a></li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div> <!-- col.// -->
+            }
+
+
+        </nav> <!-- row.// -->
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION SUBSCRIBE  ========================= -->
+<section class="padding-y-lg bg-light border-top">
+    <div class="container">
+
+        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
+
+        <div class="row justify-content-md-center">
+            <div class="col-lg-4 col-sm-6">
+                <form class="form-row">
+                    <div class="col-8">
+                        <input class="form-control" placeholder="Your Email" type="email">
+                    </div> <!-- col.// -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
+                    </div> <!-- col.// -->
+                </form>
+                <small class="form-text">We’ll never share your email address with a third-party. </small>
+            </div> <!-- col-md-6.// -->
+        </div>
+
+
+    </div>
+</section>
+<!-- ========================= SECTION SUBSCRIBE END// ========================= -->

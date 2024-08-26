@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TranHoangDinh_2120110042.Context.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <h2>Category</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().CateName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().CateImage)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CateName)
+                    </td>
+                    <td>
+                        <div class="img-wrap">
+                            <img src="~/Content/images/@item.CateImage" style="width: 150px; height: auto;" />
+                        </div>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CateId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.CateId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CateId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

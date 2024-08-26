@@ -1,0 +1,81 @@
+﻿@model TranHoangDinh_2120110042.Context.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <h2>Details</h2>
+
+        <div>
+            <h4>Product</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+
+                <dd>
+                    <div class="img-wrap">
+                        <img src="~/Content/images/@Model.Image" style="width: 150px; height: auto;" />
+                    </div>
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    $@Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FullDes)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FullDes)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ShortDes)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ShortDes)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CategoryId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CategoryId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Discount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Discount)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
